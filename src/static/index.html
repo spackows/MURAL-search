@@ -1,0 +1,91 @@
+
+<html>
+
+<head>
+<link rel='stylesheet' type='text/css' href='./css/styles.css'>
+<script type="text/javascript" src="./javascript/javascript.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body onload="populate();">
+
+
+<div id="left_side_div">
+
+<p id="search_text_label">Search text</p>
+<input id="search_text_input" class="text_input" onchange="buildQuery();" onblur="buildQuery();" onmouseleave="buildQuery();" /> 
+
+<p id="filters_label">Filters</p>
+<div id="filters_div">
+
+<!-- searchin -->
+<div class="container_div" style="border: none; padding: 0px;">
+<button id="searchin_expandcollapse_btn" class="expandcollapse_btn" onclick="expandCollapse(this);" style="transform: rotate( 0deg );">&#x2335;</button>
+<p>Search in</p>
+<div id="searchin_div">
+<ul style="display: inline-block; vertical-align: top;">
+<li><input type="checkbox" class="searchin_cb" id="searchin_room_names"  name="searchin_room_names"  value="searchin_room_names"  onchange="buildQuery();"><label for="searchin_room_names"  checked>Room names</label></li>
+<li><input type="checkbox" class="searchin_cb" id="searchin_mural_names" name="searchin_mural_names" value="searchin_mural_names" onchange="buildQuery();"><label for="searchin_mural_names" checked>Mural names</label></li>
+</ul>
+<ul style="display: inline-block; vertical-align: top;">
+<li><input type="checkbox" class="searchin_cb" id="searchin_text_widgets"   name="searchin_text_widgets"   value="searchin_text_widgets"   onchange="buildQuery();" checked><label for="searchin_text_widgets"   checked>Text widgets</label></li>
+<li><input type="checkbox" class="searchin_cb" id="searchin_shape_widgets"  name="searchin_shape_widgets"  value="searchin_shape_widgets"  onchange="buildQuery();" checked><label for="searchin_shape_widgets"  checked>Shape widgets</label></li>
+<li><input type="checkbox" class="searchin_cb" id="searchin_sticky_widgets" name="searchin_sticky_widgets" value="searchin_sticky_widgets" onchange="buildQuery();" checked><label for="searchin_sticky_widgets" checked>Sticky note widgets</label></li>
+</ul>
+</div>
+</div>
+
+<!-- created -->
+<div class="container_div">
+<button id="created_expandcollapse_btn" class="expandcollapse_btn" onclick="expandCollapse(this);">&#x2335;</button>
+<p>Date created</p>
+<div id="created_div" style="display: none;">
+<div class="date_label">After:</div><input  type="date" id="created_after_input"  name="created_after_input"  onchange="buildQuery();"><br/>
+<div class="date_label">Before:</div><input type="date" id="created_before_input" name="created_before_input" onchange="buildQuery();">
+</div>
+</div>
+
+<!-- room -->
+<div class="container_div">
+<button id="rooms_expandcollapse_btn" class="expandcollapse_btn" onclick="expandCollapse(this);">&#x2335;</button>
+<p>Rooms</p>
+<div id="rooms_div" class="list_div" style="display: none;">
+<div id="rooms_spinner" class="spinner"></div>
+<ul id="rooms_ul"></ul>
+</div>
+</div>
+
+<!-- color -->
+<div class="container_div">
+<button id="colors_expandcollapse_btn" class="expandcollapse_btn" onclick="expandCollapse(this);">&#x2335;</button>
+<p>Background colors</p>
+<div id="colors_div" class="color_list_div" style="display: none;">
+<div id="colors_spinner" class="spinner">
+</div>
+</div>
+</div>
+
+</div><!-- /filters_div -->
+
+<p id="query_label">Discovery query</p>
+<textarea id="query_display"></textarea>
+
+<button id="submit_search_btn" class="search_btn" onclick="search();">Submit</button>
+
+</div><!-- /left_side_div -->
+
+
+<div id="right_side_div">
+
+<div id="search_raw_results_label">Raw results from Discovery</div>
+<div id="search_raw_results_div"></div>
+
+<div id="search_results_label">Formatted search results</div>
+<div id="search_results_div"></div>
+
+</div><!-- /right_side_div -->
+
+
+</body>
+</html>
+
