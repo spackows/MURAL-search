@@ -1,9 +1,9 @@
 # MURAL Search
 A Python Flask app for searching MURAL using IBM Watson Discovery.  
 
-This app is part of a larger sample. 
+This app is part of a larger sample.  Read the blog: [Searching MURAL](https://sarah-packowski.medium.com/searching-in-mural-8aad3c224e6c) 
 
-See: [Demo video](https://youtu.be/FFPMoysqv5M)
+See also: [Demo video](https://youtu.be/FFPMoysqv5M)
 
 <img src="images/searching-MURAL.gif" alt="Searching MURAL" width="80%" />
 
